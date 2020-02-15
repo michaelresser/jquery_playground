@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Jquery playground</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='buttonScripts.js'></script>
+
+</head>
+<style>
+    .item {
+
+        min-height: 100px;
+        background-color: white;
+    }
+
+    .grow {
+        box-shadow: 0 0 1px 1px #666;
+        transition: all ease-in-out .3s;
+    }
+
+    .grow:hover {
+        box-shadow: 0 5px 10px 10px #999;
+        transform: scale(1.0125);
+        opacity: 1;
+
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(purple, silver);
+        margin: .25rem;
+    }
+
+    .before {
+        background: linear-gradient(blue, silver);
+    }
+
+    .after {
+        background: linear-gradient(red, silver);
+    }
+
+    .marked {
+        border: 2px solid red;
+        box-shadow: 0 0 1px 1px yellow;
+    }
+</style>
+
+<body>
+    <div class="container w-75">
+        <div class="row ">
+            <h1>Jquery in Action</h1>
+        </div>
+        <!-- .append()/.remove() -->
+        <div id="append-remove" class="item row px-2 grow">
+            <div class='col-4 align-self-center'>
+                <div class='row'>
+                    <button id="append" type="button" class="btn btn-success mr-1 addBtn">
+                        .append()
+                    </button>
+                    <button id="remove" type="button" class="btn btn-danger mr-1 remBtn">
+                        .remove()
+                    </button>
+                    <button name='reset' type='button' class='btn btn-secondary'>reset</button>
+                </div>
+            </div>
+            <div class='col-8 align-self-center'>
+                <div class='demo row'>
+                    <div class='box'></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- before() | .after() -->
+        <div id="before-after" class="item row px-2 grow">
+            <div class='col-4 align-self-center'>
+                <div class='row justify-content-start'>
+                    <button id="before" type="button" class="btn btn-success mr-1">
+                        .before()
+                    </button>
+                    <button id="after" type="button" class="btn btn-danger mr-1">
+                        .after()
+                    </button>
+                    <button name='reset' type='button' class='btn  btn-secondary '>reset</button>
+                </div>
+            </div>
+            <div class='col-8 align-self-center'>
+                <div class='demo row'>
+                    <div id='start' class='box'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
