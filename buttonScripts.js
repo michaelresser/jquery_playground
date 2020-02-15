@@ -1,53 +1,36 @@
 console.log('buttonScripts Online');
-//target parent with class 'item' on button click
-let returnItemId = () =>
-    $(document).click(function (event) {
-        let target = $(event.target).parents('.item');
-        console.log(target);
-    });
+
 
 $(document).ready(function () {
-    //target parent with class 'item' on button click
-    let ItemId = returnItemId();
+    //Function to target parent with class 'item' on button click
+    const returnParentItem = () => {
+        $('*').click(function () {
+            console.log(event.target);
+            return item;
+        });
+    };
 
-    //append()+remove()
-    let demoBox = itemId.find('.demo');
-    let numBoxes = itemId.children('.box').length;
-    let appendBtn = $('#append');
-    let removeBtn = $('#remove');
-
-    //Enable/Disable Buttons based on box count
-    let checkBoxes = (num) => {
-        if (num === 0) {
-            itemId.find('.remItem').addClass('disabled').prop('disabled', true);
-            console.log('remove disabled' + removeBtn);
-        } else if (num === 11) {
-            $('#append').addClass('disabled').prop('disabled', true);
-            console.log('append disabled' + appendBtn);
-        } else {
-            $('#append').removeClass('disabled').prop('disabled', false);
-            removeBtn.removeClass('disabled').prop('disabled', false);
-        }
-    }
-
+    //Function to enable/disable Buttons based on box count
+    const countBoxes = () => {
+        let numBoxes = $(event.target).parents('.item').find('.box').length;
+        return numBoxes;
+    };
     //append() button
-    appendBtn.click(function () {
-        demoBox
-            .append("<div class='box after'></div>");
-        numBoxes = demoBox.children('.box').length;
-        console.log(numBoxes)
-        checkBoxes(numBoxes);
+    $('#appendBtn').click(function () {
+        $(event.target)
+            .parents('.item')
+            .find('.demo')
+            .append("<div class='box aftesr'></div>");
+        console.log(countBoxes());
     });
 
     //remove() Function
-    $('#remove').click(function () {
-        demoBox
-            .children('.box').last()
-            .remove();
-        numBoxes = demoBox.children('.box').length;
-        console.log(numBoxes);
-        checkBoxes(numBoxes);
-    })
+    $('#removeBtn').click(function () {
+        console.log('click');
+        $(event.target).parents('.item').find('.box').last().remove();
+        console.log(countBoxes());
+
+    });
 
     //before() Function
     $("#before").click(function () {
