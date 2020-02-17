@@ -5,7 +5,7 @@ const countBoxes = (parent) => {
     let numBoxes = $(parent).find('.box').length;
     return numBoxes;
 };
- //function to find parent container id of clicked button
+//function to find parent container id of clicked button
 const returnParentId = () => {
     let target = $(event.target).parents('.item').attr('id');
     parentId = "#" + target;
@@ -13,10 +13,8 @@ const returnParentId = () => {
 };
 
 //Local Functions
+//set the targetInfo object with the dynamic data
 const setTargetInfo = () => {
-   
-    
-    //set the targetInfo object with the dynamic data
     let targetInfo = {};
     targetInfo.parentId = returnParentId();
     targetInfo.demoBox = $(parentId).find('.demo');
@@ -68,7 +66,7 @@ $(document).ready(function () {
         $(targetInfo.parentId).find('.demo')
             .html("<div id='start' class='box'></div>")
         targetInfo.numBoxes = countBoxes();
-            console.info(targetInfo.numBoxes);
+        console.info(targetInfo.numBoxes);
     })
 
 
